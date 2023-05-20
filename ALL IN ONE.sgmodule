@@ -33,8 +33,6 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 #Google重定向
 ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
 ^https?:\/\/(www.)?(g|google)\.com.hk https://www.google.com 302
-#Youtube Block AD
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
 #哔哩哔哩净化
 ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
 ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default - reject
