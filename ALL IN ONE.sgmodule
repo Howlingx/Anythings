@@ -129,4 +129,4 @@ http-response ^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_ca
 ip-api.com = 208.95.112.1
 
 [MITM]
-hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com
+hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com
