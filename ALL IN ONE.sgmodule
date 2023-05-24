@@ -41,8 +41,6 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
 
 [Map Local]
-#Youtube Block AD
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data="https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/blank.txt" header="Content-Type: application/vnd.yt-ump"
 #哔哩哔哩净化
 ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
 ^https://app.bilibili.com/x/v2/splash/show data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
@@ -68,7 +66,7 @@ stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent
 #Spotify部分解锁premium
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 #Youtube Block AD
-youtube = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?,requires-body=1,binary-body-mode=1,max-size=3145728,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.js
+youtube-proto = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next)\?,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js
 #哔哩哔哩净化
 bilibili_json_81 = type=http-response, pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js, timeout=60, script-update-interval=0
 bilibili_json_83 = type=http-response, pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js, timeout=60, script-update-interval=0
