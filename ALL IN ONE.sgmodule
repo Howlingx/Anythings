@@ -1,5 +1,5 @@
 #!name=ALL IN ONE
-#!desc=网络信息面板&流媒体解锁检测&Google重定向&Youtube Block AD&哔哩哔哩净化&微博净化&贴吧去广告&高德地图去广告
+#!desc=网络信息面板&流媒体解锁检测&Google重定向&Youtube Block AD&哔哩哔哩净化&微博净化&贴吧去广告&高德地图去广告&QX重写规则集转化
 #!system=ios
 
 [Panel]
@@ -125,10 +125,15 @@ http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? sc
 http-response ^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除开屏广告
 http-response ^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource\?? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除打车页推广
 http-response ^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除打车页推广
+#QX重写规则集转化
+QX转换 = type=http-request,pattern=\/[^/]+\.[^/]+qx$|qx\?(jsc|hnadd|hndel|n|y|x|del|i)=,requires-body=1,max-size=0,script-path=https://github.com/chengkongyiban/stash/raw/main/js/QX_Rewrite_Parser.js ,timeout=60
+规则集转换 = type=http-request,pattern=r_parser.list$|r_parser.list\?.*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/chengkongyiban/stash/main/js/rule_parser.js ,timeout=60
+#在QX脚本结尾加上 _script-converter-(stash|surge|loon|shadowrocket).js 根据你自己的app填写
+脚本转换 = type=http-request,pattern=_script-converter-(stash|surge|loon|shadowrocket)\.js$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/script-converter/script-converter.js, time=60
 
 [Host]
 #网络信息面板
 ip-api.com = 208.95.112.1
 
 [MITM]
-hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com
+hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com, github.com:443, raw.githubusercontent.com:443, gist.githubusercontent.com,gitlab.com
