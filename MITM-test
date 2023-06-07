@@ -1,5 +1,5 @@
 #!name=MITM-test
-#!desc=网络信息面板&流媒体解锁检测&Google重定向&Youtube Block AD&哔哩哔哩净化&微博净化&贴吧去广告&高德地图去广告&QX重写规则集转化&AdGuard美区会员解锁
+#!desc=网络信息面板&流媒体解锁检测&Google重定向&Spotify部分解锁premium&YoutubeAds&哔哩哔哩净化&微博净化&贴吧去广告&高德地图去广告&QX重写规则集转化&AdGuard美区会员解锁
 #!system=ios
 
 [Panel]
@@ -17,8 +17,6 @@ DOMAIN, awaken.amap.com, REJECT
 DOMAIN, free-aos-cdn-image.amap.com, REJECT
 
 [Rewrite]
-#Youtube Block AD
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-img
 #高德地图去广告
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-route-plan\? reject-dict
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? reject-dict
@@ -35,6 +33,8 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 #Google重定向
 ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
 ^https?:\/\/(www.)?(g|google)\.com.hk https://www.google.com 302
+#YoutubeAds
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
 #哔哩哔哩净化
 ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
 ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default - reject
@@ -43,6 +43,11 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
 
 [Map Local]
+#YoutubeAds
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
 #哔哩哔哩净化
 ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
 ^https://app.bilibili.com/x/v2/splash/show data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
@@ -67,8 +72,9 @@ net-info-panel.js=script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surg
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Panel/Stream-All/Moore/Stream-All.js
 #Spotify部分解锁premium
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
-#Youtube Block AD
-http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/YouTube/YouTube_remove_ads.js, requires-body = true, binary-body-mode = true, tag = YouTube去视频贴片广告
+#YoutubeAds
+youtube.request.beta_17 = type=http-request, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence)\?, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.request.beta.js, timeout=60, script-update-interval=0
+youtube.response.beta_18 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.beta.js, timeout=60, script-update-interval=0
 #哔哩哔哩净化
 bilibili_json_81 = type=http-response, pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js, timeout=60, script-update-interval=0
 bilibili_json_83 = type=http-response, pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js, timeout=60, script-update-interval=0
@@ -138,4 +144,4 @@ http-response ^https?:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receip
 ip-api.com = 208.95.112.1
 
 [MITM]
-hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com, github.com:443, raw.githubusercontent.com:443, gist.githubusercontent.com,gitlab.com, mobile-api.adguard.org
+hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com,s.youtube.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com, github.com:443, raw.githubusercontent.com:443, gist.githubusercontent.com,gitlab.com, mobile-api.adguard.org
