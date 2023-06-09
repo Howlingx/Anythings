@@ -1,5 +1,5 @@
 #!name=ALL IN ONE
-#!desc=网络信息面板&流媒体解锁检测&Google重定向&Spotify部分解锁premium&哔哩哔哩净化&微博净化&贴吧去广告&高德地图去广告&QX重写规则集转化&AdGuard美区会员解锁
+#!desc=网络信息面板&流媒体解锁检测&Google重定向&Spotify解锁&Youtube去广告&哔哩哔哩净化&微博净化&贴吧去广告&高德地图去广告&QX重写规则集转化&AdGuard美区会员解锁
 #!system=ios
 
 [Panel]
@@ -41,6 +41,8 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
 
 [Map Local]
+#Youtube去广告
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data="https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/blank.txt" header="Content-Type: application/vnd.yt-ump"
 #哔哩哔哩净化
 ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
 ^https://app.bilibili.com/x/v2/splash/show data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
@@ -63,8 +65,11 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 net-info-panel.js=script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Panel/Network-Info/Moore/Network-Info.js,type=generic,timeout=30
 #流媒体解锁检测
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Panel/Stream-All/Moore/Stream-All.js
-#Spotify部分解锁premium
+#Spotify解锁
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+#Youtube去广告
+youtube.request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence)\?,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.request.beta.js
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.beta.js
 #哔哩哔哩净化
 bilibili_json_81 = type=http-response, pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js, timeout=60, script-update-interval=0
 bilibili_json_83 = type=http-response, pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js, timeout=60, script-update-interval=0
@@ -134,4 +139,4 @@ http-response ^https?:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receip
 ip-api.com = 208.95.112.1
 
 [MITM]
-hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com, github.com:443, raw.githubusercontent.com:443, gist.githubusercontent.com,gitlab.com, mobile-api.adguard.org
+hostname = %APPEND% *.google.cn, *.google.com.hk, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, *biliapi.net, api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com, tiebac.baidu.com, m5.amap.com, m5-zb.amap.com, sns.amap.com, github.com:443, raw.githubusercontent.com:443, gist.githubusercontent.com,gitlab.com, mobile-api.adguard.org
