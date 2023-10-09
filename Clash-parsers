@@ -1,0 +1,176 @@
+parsers: # array
+  # - reg: ^.*$ 匹配所有订阅，或  - url: https://example.com/profile.yaml 指定订阅
+  - reg: ^.*$
+  # 删除服务商提供的策略组和规则
+    code: |
+      module.exports.parse = (raw, { yaml }) => {
+        const rawObj = yaml.parse(raw)
+        const groups = []
+        const rules = []
+        return yaml.stringify({ ...rawObj, 'proxy-groups': groups, rules })
+      } 
+  # 建立自己的配置
+    yaml:
+      prepend-proxy-groups: # 建立策略组
+        - name: 🔰 PROXY 
+          type: select
+          proxies:
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 🍎 Apple
+          type: select
+          proxies:
+            - DIRECT
+            - 🔰 PROXY
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 🖥 Microsoft
+          type: select
+          proxies:
+            - DIRECT
+            - 🔰 PROXY
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 🎵 Spotify
+          type: select
+          proxies:
+            - DIRECT
+            - 🔰 PROXY
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 📲 Telegram
+          type: select
+          proxies:
+            - 🔰 PROXY
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 📟 Twitter
+          type: select
+          proxies:
+            - 🔰 PROXY
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 🧭 Final
+          type: select
+          proxies:
+            - 🔰 PROXY
+            - 🇭🇰 ‍HongKong
+            - 🇹🇼 ‍Taiwan
+            - 🇸🇬 ‍Singapore
+            - 🇯🇵 ‍Japan
+            - 🇺🇸 United States
+
+        - name: 🇭🇰 ‍HongKong
+          type: select
+
+        - name: 🇹🇼 ‍Taiwan
+          type: select
+
+        - name: 🇸🇬 ‍Singapore
+          type: select
+
+        - name: 🇯🇵 ‍Japan
+          type: select
+
+        - name: 🇺🇸 United States
+          type: select
+        
+      commands:
+        - proxy-groups.🇭🇰 ‍HongKong.proxies.2+[]proxyNames|香港
+        - proxy-groups.🇹🇼 ‍Taiwan.proxies.2+[]proxyNames|台湾
+        - proxy-groups.🇸🇬 ‍Singapore.proxies.2+[]proxyNames|新加坡
+        - proxy-groups.🇯🇵 ‍Japan.proxies.2+[]proxyNames|日本
+        - proxy-groups.🇺🇸 United States.proxies.2+[]proxyNames|美国
+
+      prepend-rules:
+        - RULE-SET,Lan,DIRECT
+        - RULE-SET,Apple,🍎 Apple
+        - RULE-SET,Microsoft,🖥 Microsoft
+        - RULE-SET,Spotify,🎵 Spotify
+        - RULE-SET,Telegram,📲 Telegram
+        - RULE-SET,Twitter,📟 Twitter
+        - RULE-SET,PROXY,🔰 PROXY
+        - RULE-SET,China,DIRECT
+        - GEOIP,CN,DIRECT
+        - MATCH,🧭 Final
+
+      mix-rule-providers:
+        Lan: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
+          path: ./Rule/Lan.yaml
+          interval: 3600
+
+        Apple: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml
+          path: ./Rule/Apple.yaml
+          interval: 3600
+
+        Microsoft: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
+          path: ./Rule/Microsoft.yaml
+          interval: 3600
+
+        Spotify: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
+          path: ./Rule/Spotify.yaml
+          interval: 3600
+
+        Telegram:
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+          path: ./ruleset/Telegram.yaml
+          interval: 3600
+
+        Twitter: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
+          path: ./Rule/Twitter.yaml
+          interval: 3600
+
+        PROXY: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml
+          path: ./Rule/Proxy.yaml
+          interval: 3600
+
+        China: 
+          type: http
+          behavior: classical
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml
+          path: ./Rule/China.yaml
+          interval: 3600
