@@ -100,21 +100,22 @@ parsers: # array
           type: select
         
       commands:
-        - proxy-groups.🇭🇰 ‍HongKong.proxies.2+[]proxyNames|香港
-        - proxy-groups.🇹🇼 ‍Taiwan.proxies.2+[]proxyNames|台湾
-        - proxy-groups.🇸🇬 ‍Singapore.proxies.2+[]proxyNames|新加坡
-        - proxy-groups.🇯🇵 ‍Japan.proxies.2+[]proxyNames|日本
-        - proxy-groups.🇺🇸 United States.proxies.2+[]proxyNames|美国
+        - proxy-groups.🇭🇰 ‍HongKong.proxies.2+[]proxyNames|香港|🇭🇰
+        - proxy-groups.🇹🇼 ‍Taiwan.proxies.2+[]proxyNames|台湾|🇹🇼|🇨🇳
+        - proxy-groups.🇸🇬 ‍Singapore.proxies.2+[]proxyNames|新加坡|🇸🇬
+        - proxy-groups.🇯🇵 ‍Japan.proxies.2+[]proxyNames|日本|🇯🇵
+        - proxy-groups.🇺🇸 United States.proxies.2+[]proxyNames|美国|🇺🇸
 
       prepend-rules:
-        - RULE-SET,Lan,DIRECT
+        - DOMAIN-SUFFIX,gylcxo.xyz,DIRECT
         - RULE-SET,Apple,🍎 Apple
         - RULE-SET,Microsoft,🖥 Microsoft
         - RULE-SET,Spotify,🎵 Spotify
         - RULE-SET,Telegram,📲 Telegram
         - RULE-SET,Twitter,📟 Twitter
-        - RULE-SET,PROXY,🔰 PROXY
-        - RULE-SET,China,DIRECT
+        - RULE-SET,Global,🔰 PROXY
+        - RULE-SET,ChinaMax,DIRECT
+        - RULE-SET,Lan,DIRECT
         - GEOIP,CN,DIRECT
         - MATCH,🧭 Final
 
@@ -161,16 +162,16 @@ parsers: # array
           path: ./Rule/Twitter.yaml
           interval: 3600
 
-        PROXY: 
+        Global: 
           type: http
           behavior: classical
-          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml
-          path: ./Rule/Proxy.yaml
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Classical.yaml
+          path: ./Rule/Global.yaml
           interval: 3600
 
-        China: 
+        ChinaMax: 
           type: http
           behavior: classical
-          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml
-          path: ./Rule/China.yaml
+          url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
+          path: ./Rule/ChinaMax.yaml
           interval: 3600
