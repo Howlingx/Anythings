@@ -1,0 +1,68 @@
+[custom]
+;不要随意改变关键字，否则会导致出错
+;acl4SSR规则-在线更新版
+
+;去广告：支持
+;自动测速：支持
+;微软分流：支持
+;苹果分流：支持
+;增强中国IP段：不支持
+;增强国外GFW：不支持
+
+exclude_remarks=(Data Left|Traffic:|Expir[ey]|剩[余餘]流量|[到过過效]期|[时時][间間]|分割线)
+
+add_emoji=true
+remove_old_emoji=false
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(朝[鲜鮮]),🇰🇵
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*([韩韓][国國]|首尔|春川),🇰🇷
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本),🇺🇸
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(日本|东京|大阪|名古屋|埼玉),🇯🇵
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(新加坡|[狮獅]城),🇸🇬
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*([台臺][湾灣]|新[北竹]|彰化),🇹🇼
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(香港),🇭🇰
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*([韩韓]),🇰🇷
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(美),🇺🇸
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*([台臺]),🇹🇼
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(港),🇭🇰
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*([京沪滬申广廣深莞苏蘇杭厦廈海光川]日|(?<![\d\u4E00-\u9FFF])日(?![\u4E00-\u9FFF])),🇯🇵
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*([京沪滬申广廣深莞苏蘇杭厦廈海光川]新|(?<![\u4E00-\u9FFF])新(?![\u4E00-\u9FFF])),🇸🇬
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(中[国國]|[广廣]州),🇨🇳
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])(KP|PRK)(?!\d*[a-z])|North.*?Korea),🇰🇵
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])KO?R(?!\d*[a-z])|Korea|Seoul|Chuncheon),🇰🇷
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])USA?(?!\d*[a-z])|America|United.*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los.*Angeles|San.*Jose|Santa.*Clara|Seattle|Chicago|Columbus|York|Ashburn),🇺🇸
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])JA?P(?!\d*[a-z])|Japan|Tokyo|Osaka|Nagoya|Saitama),🇯🇵
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])SGP?(?!\d*[a-z])|Singapore),🇸🇬
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])(TWN?|CHT|HiNet)(?!\d*[a-z])|Taiwan),🇹🇼
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])(HKG?|CMI|HGC|HKT|HKBN|WTT|PCCW)(?!\d*[a-z])|Hong),🇭🇰
+emoji=^(?!.*(?!🇨🇳)[🇦-🇿]{2}).*(?i:(?<![\da-z.])CH?N(?!\d*[a-z])|China),🇨🇳
+
+custom_proxy_group=🔰 PROXY`select`[]🇭🇰 HongKong`[]🇹🇼 Taiwan`[]🇸🇬 Singapore`[]🇯🇵 Japan`[]🇺🇸 United States
+custom_proxy_group=🍎 Apple`select`[]DIRECT`[]🔰 PROXY`[]🇭🇰 HongKong`[]🇹🇼 Taiwan`[]🇸🇬 Singapore`[]🇯🇵 Japan`[]🇺🇸 United States
+custom_proxy_group=🎵 Spotify`select`[]DIRECT`[]🔰 PROXY`[]🇭🇰 HongKong`[]🇹🇼 Taiwan`[]🇸🇬 Singapore`[]🇯🇵 Japan`[]🇺🇸 United States
+custom_proxy_group=🖥 Microsoft`select`[]DIRECT`[]🔰 PROXY`[]🇭🇰 HongKong`[]🇹🇼 Taiwan`[]🇸🇬 Singapore`[]🇯🇵 Japan`[]🇺🇸 United States
+custom_proxy_group=📲 Telegram`select`[]🔰 PROXY`[]🇭🇰 HongKong`[]🇹🇼 Taiwan`[]🇸🇬 Singapore`[]🇯🇵 Japan`[]🇺🇸 United States
+custom_proxy_group=📟 Twitter`select`[]🔰 PROXY`[]🇭🇰 HongKong`[]🇹🇼 Taiwan`[]🇸🇬 Singapore`[]🇯🇵 Japan`[]🇺🇸 United States
+custom_proxy_group=🎯 Special`select`.*
+
+custom_proxy_group=🇭🇰 HongKong`load-balance`🇭🇰|香港(?!.*(?!🇨🇳)[🇦-🇿]{2})`https://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇹🇼 Taiwan`load-balancet`🇨🇳|🇹🇼|台湾(?!.*(?!🇨🇳)[🇦-🇿]{2})`https://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇸🇬 Singapore`load-balance`🇸🇬|新加坡(?!.*(?!🇨🇳)[🇦-🇿]{2})`https://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇯🇵 Japan`load-balance`🇯🇵|日本|🇰🇷(?!.*(?!🇨🇳)[🇦-🇿]{2})`https://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇺🇸 United States`load-balance`🇺🇸|美国(?!.*(?!🇨🇳)[🇦-🇿]{2})`https://www.gstatic.com/generate_204`300,,50
+
+enable_rule_generator=true
+overwrite_original_rules=true
+
+ruleset=DIRECT,https://raw.githubusercontent.com/Howlingx/Rewrite-Script-MITM/main/Amy.list
+ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.list
+ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.list
+ruleset=🍎 Apple,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+ruleset=🎵 Spotify,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.list
+ruleset=🖥 Microsoft,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+ruleset=📲 Telegram,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+ruleset=📟 Twitter,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
+ruleset=🎯 Special,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitch/Twitch.list
+ruleset=🇭🇰 HongKong,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ViuTV/ViuTV.list
+ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+ruleset=DIRECT,[]GEOIP,CN
+ruleset=🔰 PROXY,[]FINAL
