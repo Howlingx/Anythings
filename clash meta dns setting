@@ -1,0 +1,18 @@
+dns:
+  enable: true
+  ipv6: false
+  listen: :23453
+  enhanced-mode: redir-host
+  prefer-h3: true
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  nameserver-policy:
+    "geosite:cn": 
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+  nameserver:
+    - 'https://dns.google/dns-query#🇭🇰 Hong Kong 05'
+    - 'https://cloudflare-dns.com/dns-query#🇭🇰 Hong Kong 05'
