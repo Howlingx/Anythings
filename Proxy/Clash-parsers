@@ -12,69 +12,69 @@ parsers: # array
   # 建立自己的配置
     yaml:
       prepend-proxy-groups: # 建立策略组
-        - name: 🔰 PROXY 
+        - name:  PROXY 
           type: select
           proxies:
-            - 🇭🇰 ‍HongKong
-            - 🇹🇼 ‍Taiwan
-            - 🇸🇬 ‍Singapore
-            - 🇯🇵 ‍Japan
-            - 🇺🇸 United States
+            -  ‍HongKong
+            -  ‍Taiwan
+            -  ‍Singapore
+            -  ‍Japan
+            -  United States
 
-        - name: 🍎 Apple
-          type: select
-          proxies:
-            - DIRECT
-            - 🔰 PROXY
-            - 🇭🇰 ‍HongKong
-            - 🇹🇼 ‍Taiwan
-            - 🇸🇬 ‍Singapore
-            - 🇯🇵 ‍Japan
-            - 🇺🇸 United States
-
-        - name: 🖥 Microsoft
+        - name:  Apple
           type: select
           proxies:
             - DIRECT
-            - 🔰 PROXY
-            - 🇭🇰 ‍HongKong
-            - 🇹🇼 ‍Taiwan
-            - 🇸🇬 ‍Singapore
-            - 🇯🇵 ‍Japan
-            - 🇺🇸 United States
+            -  PROXY
+            -  ‍HongKong
+            -  ‍Taiwan
+            -  ‍Singapore
+            -  ‍Japan
+            -  United States
 
-        - name: 🎵 Spotify
+        - name:  Microsoft
           type: select
           proxies:
             - DIRECT
-            - 🔰 PROXY
-            - 🇭🇰 ‍HongKong
-            - 🇹🇼 ‍Taiwan
-            - 🇸🇬 ‍Singapore
-            - 🇯🇵 ‍Japan
-            - 🇺🇸 United States
+            -  PROXY
+            -  ‍HongKong
+            -  ‍Taiwan
+            -  ‍Singapore
+            -  ‍Japan
+            -  United States
 
-        - name: 📲 Telegram
+        - name:  Spotify
           type: select
           proxies:
-            - 🔰 PROXY
-            - 🇭🇰 ‍HongKong
-            - 🇹🇼 ‍Taiwan
-            - 🇸🇬 ‍Singapore
-            - 🇯🇵 ‍Japan
-            - 🇺🇸 United States
+            - DIRECT
+            -  PROXY
+            -  ‍HongKong
+            -  ‍Taiwan
+            -  ‍Singapore
+            -  ‍Japan
+            -  United States
 
-        - name: 📟 Twitter
+        - name:  Telegram
           type: select
           proxies:
-            - 🔰 PROXY
-            - 🇭🇰 ‍HongKong
-            - 🇹🇼 ‍Taiwan
-            - 🇸🇬 ‍Singapore
-            - 🇯🇵 ‍Japan
-            - 🇺🇸 United States
+            -  PROXY
+            -  ‍HongKong
+            -  ‍Taiwan
+            -  ‍Singapore
+            -  ‍Japan
+            -  United States
 
-        - name: 🇭🇰 ‍HongKong
+        - name:  Twitter
+          type: select
+          proxies:
+            -  PROXY
+            -  ‍HongKong
+            -  ‍Taiwan
+            -  ‍Singapore
+            -  ‍Japan
+            -  United States
+
+        - name:  ‍HongKong
           type: select
 
         - name: 🇹🇼 ‍Taiwan
