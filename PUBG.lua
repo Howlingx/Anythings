@@ -42,7 +42,7 @@ userInfo = {
 	startControl = "capslock",
 
 	-- 瞄准设置 (default - 使用游戏默认设置 | recommend - 使用脚本推荐设置 | custom - 自定义设置 | ctrlmode - 下蹲模式) | Aiming setting
-	aimingSettings = "recommend",
+	aimingSettings = "default",
 
 	-- 当 aimingSettings = "custom" ，需要在此处设置自定义判断条件，通常配合 IsMouseButtonPressed 或 IsModifierPressed 使用，使用方法请查阅 G-series Lua API 参考文档.docx
 	customAimingSettings = {
@@ -93,14 +93,14 @@ userInfo = {
 	G_bind = {
 		-- G
 		["G3"] = "",
-		["G4"] = "",
-		["G5"] = "",
-		["G6"] = "5.56",
-		["G7"] = "9mm",
-		["G8"] = "7.62",
-		["G9"] = ".45",
-		["G10"] = "last",
-		["G11"] = "next",
+		["G4"] = "SCAR-L|scopeX1",
+		["G5"] = "SCAR-L|scopeX4",
+		["G6"] = "",
+		["G7"] = "M16A4",
+		["G8"] = "",
+		["G9"] = "",
+		["G10"] = "",
+		["G11"] = "",
 		-- lalt + G
 		["lalt + G3"] = "",
 		["lalt + G4"] = "",
@@ -125,12 +125,12 @@ userInfo = {
 		["lshift + G3"] = "",
 		["lshift + G4"] = "",
 		["lshift + G5"] = "",
-		["lshift + G6"] = "fast_pickup",
+		["lshift + G6"] = "",
 		["lshift + G7"] = "",
 		["lshift + G8"] = "",
 		["lshift + G9"] = "",
 		["lshift + G10"] = "",
-		["lshift + G11"] = "fast_lick_box",
+		["lshift + G11"] = "",
 		-- ralt + G
 		["ralt + G3"] = "",
 		["ralt + G4"] = "",
@@ -155,7 +155,7 @@ userInfo = {
 		["rshift + G3"] = "",
 		["rshift + G4"] = "",
 		["rshift + G5"] = "",
-		["rshift + G6"] = "fast_discard",
+		["rshift + G6"] = "",
 		["rshift + G7"] = "",
 		["rshift + G8"] = "",
 		["rshift + G9"] = "",
