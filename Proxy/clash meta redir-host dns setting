@@ -14,5 +14,5 @@ dns:
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
   nameserver:
-    - 'https://dns.google/dns-query# Hong Kong 05'
-    - 'https://cloudflare-dns.com/dns-query# Hong Kong 05'
+    - 'https://dns.google/dns-query#🇭🇰 Hong Kong 05'
+    - 'https://cloudflare-dns.com/dns-query#🇭🇰 Hong Kong 05'
