@@ -2,7 +2,7 @@
 
 ---- Mouse key combination activation (default 4)
 
-local mKey4 = 4
+local mKey4 = 5
 
 ---- Click shot settings (does not work when paused)
 
@@ -12,7 +12,7 @@ local ClickTime = 180 --- Pause in milliseconds
 ---- Other script settings
 
 local PauseScript = "capslock" --- Pause button
-local SensReduce = false --- false - sensitivity 2.0 / true - 1.0
+local SensReduce = true --- false - sensitivity 2.0 / true - 1.0
 
 ---- Any changes below are prohibited - may break the script
 
@@ -56,8 +56,8 @@ function OnEvent(event, arg)
         OutputLogMessage("  --- Detailed instructions on the website --- www.FLUMBIX.RU\n\n")
         OutputLogMessage(" mKey3, mKey4, mKey5 - mouse buttons 3, 4, 5 (buttons can be changed)\n\n")
         OutputLogMessage(" Activation:\n")
-        OutputLogMessage(" AK47 -> L CTRL  + mKey4 | or G1 (keyboard Logi)\n")
-        OutputLogMessage(" M4A4 -> L SHIFT + mKey4 | or G2 (keyboard Logi)\n")
+        OutputLogMessage(" AK47 -> L SHIFT  + mKey4 | or G1 (keyboard Logi)\n")
+        OutputLogMessage(" M4A4 -> L CTRL + mKey4 | or G2 (keyboard Logi)\n")
         OutputLogMessage(" M4A1 -> L ALT   + mKey4 | or G3 (keyboard Logi)\n")
         OutputLogMessage(" Deactivation: any key combination\n\n")
         OutputLogMessage(" Click shot -> L ALT hold + mouse LKM (L ALT can be changed)\n\n")
@@ -77,7 +77,7 @@ function OnEvent(event, arg)
         click_key = 1
     end
     if
-        (event == "MOUSE_BUTTON_PRESSED" and arg == mKey4 and IsModifierPressed("lctrl")) or
+        (event == "MOUSE_BUTTON_PRESSED" and arg == mKey4 and IsModifierPressed("lshift")) or
             (event == "G_PRESSED" and arg == AK47)
      then
         pattern = not pattern
@@ -89,7 +89,7 @@ function OnEvent(event, arg)
             EnablePrimaryMouseButtonEvents(true)
         end
     elseif
-        (event == "MOUSE_BUTTON_PRESSED" and arg == mKey4 and IsModifierPressed("lshift")) or
+        (event == "MOUSE_BUTTON_PRESSED" and arg == mKey4 and IsModifierPressed("lctrl")) or
             (event == "G_PRESSED" and arg == M4A4)
      then
         pattern = not pattern
