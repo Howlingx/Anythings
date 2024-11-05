@@ -141,3 +141,27 @@ sudo rm -rf /etc/cloudflared
 sudo rm /etc/systemd/system/cloudflared.service
 ```
 
+
+-------------------------------------------------------------------------------------------------
+
+
+其他dns修改：
+
+1.编辑 /etc/resolv.conf 文件：
+```
+sudo nano /etc/resolv.conf
+```
+
+2.修改 systemd-resolved 的配置：
+```
+sudo nano /etc/systemd/resolved.conf
+```
+重启服务：
+```
+sudo systemctl restart systemd-resolved
+```
+
+3.检查状态： 使用以下命令确认配置是否生效：
+```
+systemd-resolve --status
+```
