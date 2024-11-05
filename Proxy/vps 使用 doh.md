@@ -92,7 +92,7 @@ nameserver 127.0.0.1
 ```
 sudo nano /etc/cloudflared/config.yml
 ```
-或修改systemd 服务文件
+或修改 systemd 服务文件
 ```
 sudo nano /etc/systemd/system/cloudflared.service
 ```
@@ -102,10 +102,11 @@ sudo nano /etc/systemd/system/cloudflared.service
 ```
 sudo systemctl restart cloudflared
 ```
-或重启系统无法
+或系统重新加载服务配置以应用修改 systemd 服务文件
 ```
 sudo systemctl daemon-reload
 ```
+之后，你可以重启 cloudflared 服务。
 
 3.如果遇到问题
 ```
