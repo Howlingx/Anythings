@@ -88,31 +88,30 @@ nameserver 127.0.0.1
 
 要刷新 cloudflared 配置，按照以下步骤操作：
 
-1.编辑配置文件：修改 /etc/cloudflared/config.yml 或你使用的其他配置文件。
+1.编辑配置文件：
+修改 /etc/cloudflared/config.yml 或你使用的其他配置文件。
 ```
 sudo nano /etc/cloudflared/config.yml
 ```
-或修改 systemd 服务文件
-```
-sudo nano /etc/systemd/system/cloudflared.service
-```
-
-2.重启 cloudflared 服务：
 应用更改后，重启 cloudflared。
 ```
 sudo systemctl restart cloudflared
 ```
-或系统重新加载服务配置以应用修改 systemd 服务文件
+
+2.或
+修改 systemd 服务文件
+```
+sudo nano /etc/systemd/system/cloudflared.service
+```
+系统重新加载服务配置以应用修改 systemd 服务文件
 ```
 sudo systemctl daemon-reload
 ```
-之后，你可以重启 cloudflared 服务。
 
-3.如果遇到问题
+3.检查状态和日志，以确认服务是否正常运行
 ```
 sudo systemctl status cloudflared
 ```
-检查状态和日志，以确认服务是否正常运行。
 
 
 
