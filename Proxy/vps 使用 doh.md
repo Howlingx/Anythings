@@ -74,6 +74,7 @@ nameserver 127.0.0.1
 
 
 要刷新 cloudflared 配置，按照以下步骤操作：
+
 1.编辑配置文件：修改 /etc/cloudflared/config.yml 或你使用的其他配置文件。
 ```
 sudo nano /etc/cloudflared/config.yml
@@ -102,6 +103,7 @@ sudo systemctl status cloudflared
 
 
 要卸载 cloudflared，请执行以下步骤：
+
 1.停止并禁用服务：
 ```
 sudo systemctl stop cloudflared
