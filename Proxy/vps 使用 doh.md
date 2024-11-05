@@ -68,6 +68,11 @@ nameserver 127.0.0.1
 ```
 这将使用 cloudflared 代理作为系统的 DNS 服务器。
 
+
+
+
+
+
 要刷新 cloudflared 配置，按照以下步骤操作：
 1.编辑配置文件：修改 /etc/cloudflared/config.yml 或你使用的其他配置文件。
 ```
@@ -90,6 +95,11 @@ sudo systemctl daemon-reload
 sudo systemctl status cloudflared
 ```
 检查状态和日志，以确认服务是否正常运行。
+
+
+
+
+
 
 要卸载 cloudflared，请执行以下步骤：
 1.停止并禁用服务：
