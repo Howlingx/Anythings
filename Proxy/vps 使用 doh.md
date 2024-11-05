@@ -13,6 +13,7 @@ sudo mv cloudflared-linux-amd64 /usr/local/bin/cloudflared
 
 
 第二步：配置 cloudflared
+
 1.创建 cloudflared 的配置目录：
 ```
 sudo mkdir /etc/cloudflared
@@ -96,7 +97,8 @@ sudo nano /etc/cloudflared/config.yml
 sudo nano /etc/systemd/system/cloudflared.service
 ```
 
-2.重启 cloudflared 服务：应用更改后，重启 cloudflared。
+2.重启 cloudflared 服务：
+应用更改后，重启 cloudflared。
 ```
 sudo systemctl restart cloudflared
 ```
