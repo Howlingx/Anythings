@@ -63,3 +63,5 @@ sudo apt remove ufw
 sudo apt purge ufw
 ````
 
+卸载完成后，可以使用 sudo apt autoremove 来清理不再需要的依赖。
+
