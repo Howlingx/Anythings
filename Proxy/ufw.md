@@ -19,29 +19,29 @@ sudo ufw enable
 
 ufw 常用命令：
 
-1.只允许 TCP 端口：
+1.要暂停 ufw，可以使用以下命令：
+````
+sudo ufw disable
+````
+
+2.只允许 TCP 端口：
 ````
 sudo ufw allow 111/tcp
 ````
 
-2.只允许 UDP 端口：
+3.只允许 UDP 端口：
 ````
 sudo ufw allow 111/udp
 ````
 
-3.允许 TCP 端口 和 UDP 端口：
+4.允许 TCP 端口 和 UDP 端口：
 ````
 sudo ufw allow 111
 ````
 
-4.查看 ufw 状态：
+5.查看 ufw 状态：
 ````
 sudo ufw status
-````
-
-5.要暂停 ufw，可以使用以下命令：
-````
-sudo ufw disable
 ````
 
 6.未安装 ufw ，端口检查：
