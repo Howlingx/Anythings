@@ -24,6 +24,11 @@ chmod +x consume_bandwidth.sh
 ./consume_bandwidth.sh
 ````
 
+5.使用 nohup 命令会忽略挂起信号，使进程在 SSH 断开后继续运行:
+````
+nohup ./consume_bandwidth.sh > output.log 2>&1 &
+````
+
 ------------------------------------------------------------------------------------------
 
 其他 URL 推荐：
