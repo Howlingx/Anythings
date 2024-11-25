@@ -10,12 +10,12 @@ sudo timedatectl set-timezone Asia/Hong_Kong
 
 3.新加坡时区
 ````
-Asia/Singapore
+sudo timedatectl set-timezone Asia/Singapore
 ````
 
 3.俄罗斯莫斯科时区
 ````
-sudo timedatectl set-timezone Russia/Moscow
+sudo timedatectl set-timezone Europe/Moscow
 ````
 
 4.美国洛杉矶时区
