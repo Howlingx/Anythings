@@ -41,15 +41,20 @@ sudo ufw allow 111
 
 5.查看 ufw 状态：
 ````
-sudo ufw status
+sudo ufw status verbose
 ````
 
-6.未安装 ufw ，端口检查：
+6.重启 ufw ：
+```
+sudo systemctl restart ufw
+```
+
+7.未安装 ufw ，端口检查：
 ````
 sudo netstat -tuln
 ````
 
-7.删除特定端口规则：
+8.删除特定端口规则：
 ````
 sudo ufw delete allow <端口号>
 ````
