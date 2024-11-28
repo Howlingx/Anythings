@@ -8,7 +8,7 @@ sudo nano /etc/sysctl.conf
 ````
 # 启用 BBR 拥塞控制
 net.ipv4.tcp_congestion_control = bbr
-net.core.default_qdisc=fq
+net.core.default_qdisc = fq
 
 # 最大和默认的接收与发送缓冲区大小
 net.core.rmem_default = 33554432
