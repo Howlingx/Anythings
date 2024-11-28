@@ -79,6 +79,22 @@ net.ipv4.tcp_timestamps = 0
 # 网络队列优化，适合高并发
 net.core.netdev_max_backlog = 50000
 net.core.somaxconn = 1024
+
+# UDP 的相关优化配置
+# 设置 UDP 的最小接收缓冲区大小
+net.ipv4.udp_rmem_min = 8192
+# 设置 UDP 的最大接收缓冲区
+net.core.rmem_max = 67108864
+# 设置 UDP 的最小发送缓冲区大小
+net.ipv4.udp_wmem_min = 8192
+# 设置 UDP 的最大发送缓冲区
+net.core.wmem_max = 67108864
+
+# 设置 UDP 的本地端口范围
+net.ipv4.ip_local_port_range = 10240 65535
+
+# 提高 UDP 丢包容错性
+net.netfilter.nf_conntrack_udp_timeout = 30
 ````
 
 2.使配置生效
