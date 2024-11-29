@@ -44,7 +44,7 @@ net.ipv4.conf.all.rp_filter = 0
 net.ipv4.tcp_syn_retries = 2
 net.ipv4.tcp_synack_retries = 2
 net.ipv4.tcp_fin_timeout = 15
-net.netfilter.nf_conntrack_tcp_timeout_established = 3600
+net.netfilter.nf_conntrack_tcp_timeout_established = 84600
 net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 30
 
 # TCP 保活时间，优化长连接
@@ -94,7 +94,8 @@ net.core.wmem_max = 67108864
 net.ipv4.ip_local_port_range = 10240 65535
 
 # 提高 UDP 丢包容错性
-net.netfilter.nf_conntrack_udp_timeout = 30
+net.netfilter.nf_conntrack_udp_timeout = 600
+net.netfilter.nf_conntrack_udp_timeout_stream = 600
 ````
 
 2.使配置生效
