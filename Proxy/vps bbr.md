@@ -5,7 +5,9 @@
 sudo nano /etc/sysctl.conf
 ````
 
+  或：
 ````
+cat > /etc/sysctl.conf << EOF
 # 启用 BBR 拥塞控制
 net.ipv4.tcp_congestion_control = bbr
 net.core.default_qdisc = fq
@@ -96,6 +98,8 @@ net.ipv4.ip_local_port_range = 10240 65535
 # 提高 UDP 丢包容错性
 net.netfilter.nf_conntrack_udp_timeout = 600
 net.netfilter.nf_conntrack_udp_timeout_stream = 600
+EOF
+sysctl -p && sysctl --system
 ````
 
 2.使配置生效
@@ -144,53 +148,14 @@ sysctl -p && sysctl --system
 
 --------------------------------------------------------------
 
-香港 bbr 配置
+nf_conntrack，手动加载该模块：
 ````
-net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr
-net.ipv4.tcp_rmem = 4096 87380 6291456
-net.ipv4.tcp_wmem = 4096 16384 4194304
-net.core.somaxconn = 1024
-net.core.netdev_max_backlog = 5000
-net.ipv4.tcp_max_syn_backlog = 4096
-net.ipv4.tcp_keepalive_time = 600
-net.ipv4.tcp_keepalive_intvl = 15
-net.ipv4.tcp_keepalive_probes = 5
-net.ipv4.tcp_tw_reuse = 1
+sudo modprobe nf_conntrack
 ````
 
------------------------------------------------------------------
-
-新加坡 bbr 配置
+针对 UDP 超时，可能需要额外加载以下模块：
 ````
-net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr
-net.ipv4.tcp_rmem = 4096 87380 6291456
-net.ipv4.tcp_wmem = 4096 16384 4194304
-net.ipv4.tcp_keepalive_time = 600
-net.ipv4.tcp_keepalive_intvl = 15
-net.ipv4.tcp_keepalive_probes = 5
-net.core.somaxconn = 1024
-net.core.netdev_max_backlog = 5000
-net.ipv4.tcp_max_syn_backlog = 4096
+sudo modprobe nf_conntrack_udp
 ````
 
-------------------------------------------------------------------
-
-俄罗斯 bbr 配置
-````
-net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr
-net.ipv4.tcp_keepalive_time = 1200
-net.ipv4.tcp_keepalive_intvl = 15
-net.ipv4.tcp_keepalive_probes = 5
-net.ipv4.tcp_fin_timeout = 15
-net.ipv4.tcp_tw_reuse = 1
-net.core.somaxconn = 1024
-net.core.netdev_max_backlog = 5000
-net.ipv4.tcp_max_syn_backlog = 4096
-net.ipv4.tcp_window_scaling = 1
-net.ipv4.tcp_rmem = 4096 87380 6291456
-net.ipv4.tcp_wmem = 4096 16384 4194304
-````
 
