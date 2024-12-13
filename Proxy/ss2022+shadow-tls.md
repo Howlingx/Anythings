@@ -32,7 +32,7 @@ RestartSec=5s
 Environment=RUST_LOG=error
 Environment=MONOIO_FORCE_LEGACY_DRIVER=1
 ExecStartPre=/bin/sh -c ulimit -n 51200
-ExecStart=shadow-tls --fastopen --v3 --strict server --wildcard-sni=authed --listen [::]:443 --server 127.0.0.1:12446 --tls v3-dy-o.zjcdn.com:443 --password MVlWnwyr9vEOK8hL
+ExecStart=shadow-tls --fastopen --v3 --strict server --wildcard-sni=authed --listen [::]:443 --server 127.0.0.1:12446 --tls v3-dy-o.zjcdn.com:443 --password pANwXJuq1QjGGzt2
 
 [Install]
 WantedBy=multi-user.target
@@ -40,6 +40,10 @@ WantedBy=multi-user.target
 这里的 12446 是 TCP 端口. 如果你的 SS TCP 监听的是其他端口, 这里自己改
 
 4.重载服务&启动
+````
+systemctl daemon-reload
+````
+
 ````
 sudo systemctl restart shadow-tls
 ````
