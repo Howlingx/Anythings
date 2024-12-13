@@ -15,6 +15,11 @@ sudo apt install ufw
 sudo ufw enable
 ````
 
+4.查看 ufw 状态：
+````
+sudo ufw status verbose
+````
+
 --------------------------------------------------------------------
 
 ufw 常用命令：
@@ -39,9 +44,9 @@ sudo ufw allow 111/udp
 sudo ufw allow 111
 ````
 
-5.查看 ufw 状态：
+5. Fullcone NAT :
 ````
-sudo ufw status verbose
+sudo ufw allow proto udp from any to any
 ````
 
 6.重启 ufw ：
