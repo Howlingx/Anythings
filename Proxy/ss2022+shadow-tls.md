@@ -1,6 +1,6 @@
 1. Shadowsocks 2022
 
-自己搭, 假设 TCP 和 UDP 都监听的是 0.0.0.0:12446, 加密 2022-blake3-aes-256-gcm, 密码 SaAj4IC+cHEyWoCaUXeNBE+A8DcqKRsOELe4FOuuNJE=
+  自己搭, 假设 TCP 和 UDP 都监听的是 0.0.0.0:12446, 加密 2022-blake3-aes-256-gcm, 密码 SaAj4IC+cHEyWoCaUXeNBE+A8DcqKRsOELe4FOuuNJE=
 
 2. 安装Shadow TLS，开放端口：
 ````
