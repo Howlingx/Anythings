@@ -1,4 +1,10 @@
 ````
+{
+  "log": {
+    "output": "/var/log/sing-box/access.log",
+    "level": "info",
+    "timestamp": true
+  },
   "dns": {
     "servers": [
       {
@@ -141,4 +147,19 @@
         }
     ]
   },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com"
+  },
+  "outbounds": [
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    }
+  ]
+}
 ````
