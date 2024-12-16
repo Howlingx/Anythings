@@ -16,13 +16,13 @@
         "address": "local"
       },
       {
-        "tag": "dnsunclock",
+        "tag": "dnsunblock",
         "address": "local"
       }
     ],
     "rules": [
         {
-          "server": "dnsunclock",
+          "server": "dnsunblock",
           "geosite":[
             "tiktok",
             "disney",
