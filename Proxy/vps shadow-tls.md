@@ -13,7 +13,7 @@ curl -L https://github.com/ihciah/shadow-tls/releases/download/v0.2.25/shadow-tl
 ````
 
 ````
-sudo ufw allow 443
+sudo ufw allow 8443
 ````
 
  3.编辑 /etc/systemd/system/shadow-tls.service :
