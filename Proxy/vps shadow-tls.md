@@ -36,7 +36,7 @@ RestartSec=5s
 Environment=RUST_LOG=error
 Environment=MONOIO_FORCE_LEGACY_DRIVER=1
 ExecStartPre=/bin/sh -c ulimit -n 51200
-ExecStart=shadow-tls --fastopen --v3 --strict server --wildcard-sni=authed --listen [::]:8443 --server 127.0.0.1:12446 --tls gateway.icloud.com --password pANwXJuq1QjGGzt2
+ExecStart=shadow-tls --fastopen --v3 --strict server --wildcard-sni=authed --listen [::]:8443 --server 127.0.0.1:12446 --tls gateway.icloud.com --password zeNP8g6yd2ADQhpktFfY
 
 [Install]
 WantedBy=multi-user.target
