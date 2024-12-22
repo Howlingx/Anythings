@@ -94,10 +94,6 @@ net.core.wmem_max = 67108864
 
 # 设置 UDP 的本地端口范围
 net.ipv4.ip_local_port_range = 10240 65535
-
-# 提高 UDP 丢包容错性
-net.netfilter.nf_conntrack_udp_timeout = 600
-net.netfilter.nf_conntrack_udp_timeout_stream = 600
 EOF
 sysctl -p && sysctl --system
 ````
