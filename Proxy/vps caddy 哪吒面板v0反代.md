@@ -1,5 +1,10 @@
 注意：以下仅适用于使用了 223boy 的一键 sing-box 脚本后的 caddy 配置方案
 
+哪吒面板v0文档：
+````
+https://nezha-v0.mereith.dev/guide/dashboard.html
+````
+
 1.可以在 /etc/caddy/sites 存放你另外的网站配置，注意后缀要为 .conf :
 ````
 sudo nano /etc/caddy/Caddyfile/example.com.conf
