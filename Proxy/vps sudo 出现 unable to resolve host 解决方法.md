@@ -1,4 +1,4 @@
-sudo 出现unable to resolve host 解决方法
+sudo 出现 unable to resolve host 解决方法
 
 1.检查hostname：
 ````
