@@ -7,7 +7,7 @@ https://nezha-v0.mereith.dev/guide/dashboard.html
 
 1.可以在 /etc/caddy/sites 存放你另外的网站配置，注意后缀要为 .conf :
 ````
-sudo nano /etc/caddy/Caddyfile/example.com.conf
+sudo nano /etc/caddy/sites/example.com.conf
 ````
 
 2.填入以下内容:
