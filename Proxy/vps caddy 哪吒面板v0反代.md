@@ -29,3 +29,26 @@ sing-box restart caddy
 ````
 systemctl status caddy
 ````
+
+-----------------------------------------------------------------------------------------------
+
+关闭SSH和自动更新
+1.编辑 agent 服务文件
+````
+nano /etc/systemd/system/nezha-agent.service
+````
+
+2.在`ExecStart=`这一栏最后加入
+````
+--disable-command-execute --disable-auto-update --disable-force-update
+````
+
+3.重新加载 systemd 管理器配置文件
+````
+systemctl daemon-reload
+````
+
+4.重启 agent 服务
+````
+systemctl restart nezha-agent
+````
