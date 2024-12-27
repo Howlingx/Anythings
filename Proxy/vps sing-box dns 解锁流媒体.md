@@ -24,22 +24,47 @@
         {
           "server": "dnsunblock",
           "geosite":[
-            "tiktok",
+            "category-ai-chat-!cn",  # 国际&香港
+            "dazn",
+            "hotstar",
             "disney",
             "netflix",
             "youtube",
             "amazon",
-            "spotify",
-            "category-ai-chat-!cn",
-            "dazn",
-            "hotstar",
             "tvb",
-            "bahamut",
-            "kktv",
+            "iqiyi",
+            "bilibili",
+            "viu",
+            "tiktok",
+            "now",
+            "spotify",
+            "kktv",  # 台湾
             "litv",
             "line",
             "hamivideo",
-            "catchplay"
+            "catchplay",
+            "bahamut",
+            "newsmax",
+            "dmm",  # 日本
+            "abema",
+            "niconico",
+            "tver",
+            "projectsekai",
+            "coupang",  # 韩国
+            "naver",
+            "fox",  # 美洲
+            "hulu",
+            "espn",
+            "nbcuniversal",
+            "hbo",
+            "sling",
+            "plutotv",
+            "showtimeanytime",
+            "discoveryplus",
+            "abc",
+            "rakuten",  # 欧洲
+            "bbc",
+            "sky"
           ]
         }
     ]
