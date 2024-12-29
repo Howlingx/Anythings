@@ -69,10 +69,6 @@
         }
     ]
   },
-  "ntp": {
-    "enabled": true,
-    "server": "time.apple.com"
-  },
   "outbounds": [
     {
       "tag": "direct",
