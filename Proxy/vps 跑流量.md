@@ -8,35 +8,9 @@ nano consume_bandwidth.sh
 2.将脚本内容粘贴到编辑器中。例如：
 ````
 #!/bin/bash
-
-# 设置并发连接数量
-connections=10
-
-# 下载目标文件的 URL
-download_url="http://speedtest.tele2.net/1GB.zip"
-
-# 本地上传目标的 URL
-upload_target="https://filebin.net"
-
-# 无限循环
+URL="https://speed.cloudflare.com/__down?during=download&bytes=1073741824"  # 1GB
 while true; do
-    # 开始下载
-    echo "Starting download stress test..."
-    for i in $(seq 1 $connections); do
-        wget -qO- $download_url > /dev/null &
-    done
-
-    # 开始上传
-    echo "Starting upload stress test..."
-    for i in $(seq 1 $connections); do
-        curl -X POST -F "file=@/dev/zero" $upload_target > /dev/null 2>&1 &
-    done
-
-    # 等待任务完成
-    wait
-
-    # 提示运行状态
-    echo "Traffic simulation cycle complete. Restarting..."
+    wget -O /dev/null "$URL"
 done
 ````
 
