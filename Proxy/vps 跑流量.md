@@ -8,10 +8,31 @@ nano consume_bandwidth.sh
 2.将脚本内容粘贴到编辑器中。例如：
 ````
 #!/bin/bash
-URL="https://speed.cloudflare.com/__down?during=download&bytes=1073741824"  # 1GB
-while true; do
-    wget -O /dev/null "$URL"
+
+# 设置并发连接数量
+connections=10
+
+# 下载目标文件的 URL
+download_url="http://speedtest.tele2.net/1GB.zip"
+
+# 本地上传目标的 IP 或地址
+upload_target="https://filebin.net" # 替换为真实的上传目标
+
+# 开始下载
+echo "Starting download stress test..."
+for i in $(seq 1 $connections); do
+    wget -qO- $download_url > /dev/null &
 done
+
+# 开始上传
+echo "Starting upload stress test..."
+for i in $(seq 1 $connections); do
+    curl -X POST -F "file=@/dev/zero" $upload_target > /dev/null 2>&1 &
+done
+
+# 提示用户
+echo "Traffic simulation started. Press Ctrl+C to stop."
+wait
 ````
 
 3.确保脚本有执行权限，运行以下命令：
