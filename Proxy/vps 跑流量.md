@@ -15,24 +15,29 @@ connections=10
 # 下载目标文件的 URL
 download_url="http://speedtest.tele2.net/1GB.zip"
 
-# 本地上传目标的 IP 或地址
-upload_target="https://filebin.net" # 替换为真实的上传目标
+# 本地上传目标的 URL
+upload_target="https://filebin.net"
 
-# 开始下载
-echo "Starting download stress test..."
-for i in $(seq 1 $connections); do
-    wget -qO- $download_url > /dev/null &
+# 无限循环
+while true; do
+    # 开始下载
+    echo "Starting download stress test..."
+    for i in $(seq 1 $connections); do
+        wget -qO- $download_url > /dev/null &
+    done
+
+    # 开始上传
+    echo "Starting upload stress test..."
+    for i in $(seq 1 $connections); do
+        curl -X POST -F "file=@/dev/zero" $upload_target > /dev/null 2>&1 &
+    done
+
+    # 等待任务完成
+    wait
+
+    # 提示运行状态
+    echo "Traffic simulation cycle complete. Restarting..."
 done
-
-# 开始上传
-echo "Starting upload stress test..."
-for i in $(seq 1 $connections); do
-    curl -X POST -F "file=@/dev/zero" $upload_target > /dev/null 2>&1 &
-done
-
-# 提示用户
-echo "Traffic simulation started. Press Ctrl+C to stop."
-wait
 ````
 
 3.确保脚本有执行权限，运行以下命令：
