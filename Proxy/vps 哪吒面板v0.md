@@ -5,6 +5,10 @@
 https://nezha-v0.mereith.dev/guide/dashboard.html
 ````
 
+----------------------------------------------------------------------------------------------------
+
+面板反代：
+
 1.可以在 /etc/caddy/sites 存放你另外的网站配置，注意后缀要为 .conf :
 ````
 sudo nano /etc/caddy/sites/example.com.conf
@@ -53,3 +57,43 @@ systemctl daemon-reload
 ````
 systemctl restart nezha-agent
 ````
+
+--------------------------------------------------------------------------------------------------
+
+服务器 ID(排序) 修正
+
+如果修改涉及应用程序，确保在应用停止状态下修改，避免并发访问数据库导致冲突。
+
+1.安装 SQLite 工具：
+````
+sudo apt-get install sqlite3 -y
+````
+
+2.在修改之前，备份数据库以防万一：
+````
+cp /opt/nezha/dashboard/data/sqlite.db /opt/nezha/dashboard/data/sqlite.db.bak
+````
+
+3.打开数据库：
+````
+sqlite3 /opt/nezha/dashboard/data/sqlite.db
+````
+
+4.执行 SQL 更新语句：
+````
+UPDATE servers
+SET id = (
+    SELECT COUNT(*) 
+    FROM servers AS s 
+    WHERE s.rowid <= servers.rowid
+);
+````
+
+按回车后，SQLite 将执行更新操作。
+
+5.检查修改结果：
+````
+SELECT * FROM servers LIMIT 10;
+````
+
+6.输入 .quit 或按 Ctrl+D 退出 SQLite
