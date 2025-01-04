@@ -30,6 +30,7 @@ proxy-dns: true
 proxy-dns-upstream:
   - https://1.1.1.1/dns-query
   - https://1.0.0.1/dns-query
+  - https://dns.google/dns-query
 ```
 保存并退出。
 
