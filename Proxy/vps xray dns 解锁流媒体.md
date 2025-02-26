@@ -1,3 +1,4 @@
+````
 {
   "log": {
     "access": "/var/log/xray/access.log",
@@ -91,3 +92,4 @@
     }
   ]
 }
+````
