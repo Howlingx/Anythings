@@ -39,7 +39,7 @@ sudo ufw allow 3000/tcp
 
 DNS 解锁：
 ````
-[https://cloudflare-dns.com/dns-query
+https://cloudflare-dns.com/dns-query
 https://dns.google/dns-query
 # openai
 [/ai.com/]154.12.177.22
@@ -515,5 +515,5 @@ https://dns.google/dns-query
 [/hamivideo.cdn.hinet.net/]154.12.177.22
 # Friday Video
 [/fetnet.net/]154.12.177.22
-[/friday.tw/]154.12.177.22)
+[/friday.tw/]154.12.177.22
 ````
