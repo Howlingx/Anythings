@@ -8,7 +8,7 @@
   "dns": {
     "servers": [
       {
-        "address": "https://1.1.1.1/dns-query",
+        "address": "https://dns.google/dns-query",
         "address_resolver": "local"
       },
       {
@@ -17,7 +17,7 @@
       },
       {
         "tag": "dnsunblock",
-        "address": "local"
+        "address": "154.12.177.22"
       }
     ],
     "rules": [
