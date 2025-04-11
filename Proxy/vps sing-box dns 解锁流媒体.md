@@ -64,8 +64,8 @@
             "rakuten",  # 欧洲
             "bbc",
             "sky"
-          ]
-        }
+        ]
+      }
     ]
   },
   "outbounds": [
