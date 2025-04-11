@@ -29,7 +29,6 @@
             "hotstar",
             "disney",
             "netflix",
-            "youtube",
             "amazon",
             "tvb",
             "iqiyi",
