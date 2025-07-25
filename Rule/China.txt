@@ -1,4 +1,5 @@
 DOMAIN-SUFFIX,qq.com
+DOMAIN-SUFFIX,huya.com
 DOMAIN-SUFFIX,autonavi.com
 DOMAIN-SUFFIX,fqnovel.com
 DOMAIN-SUFFIX,fqnovelpic.com
