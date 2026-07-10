@@ -8,7 +8,7 @@ nano consume_bandwidth.sh
 2.将脚本内容粘贴到编辑器中。例如：
 ````
 #!/bin/bash
-URL="https://speed.cloudflare.com/__down?during=download&bytes=1073741824"  # 1GB
+URL="http://hkg.download.datapacket.com/10000mb.bin"  # 10GB
 while true; do
     wget -O /dev/null "$URL"
 done
